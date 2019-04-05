@@ -12,6 +12,7 @@
 		4DBAE2892256CF3500EB9DC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DBAE2872256CF3500EB9DC5 /* Main.storyboard */; };
 		4DBAE28B2256CF3600EB9DC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DBAE28A2256CF3600EB9DC5 /* Assets.xcassets */; };
 		4DBAE28E2256CF3600EB9DC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DBAE28C2256CF3600EB9DC5 /* LaunchScreen.storyboard */; };
+		4DBAE2962256DF8800EB9DC5 /* WebsitesTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBAE2952256DF8800EB9DC5 /* WebsitesTableTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		4DBAE28A2256CF3600EB9DC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DBAE28D2256CF3600EB9DC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DBAE28F2256CF3600EB9DC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DBAE2952256DF8800EB9DC5 /* WebsitesTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsitesTableTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				4DBAE28A2256CF3600EB9DC5 /* Assets.xcassets */,
 				4DBAE28C2256CF3600EB9DC5 /* LaunchScreen.storyboard */,
 				4DBAE28F2256CF3600EB9DC5 /* Info.plist */,
+				4DBAE2952256DF8800EB9DC5 /* WebsitesTableTableViewController.swift */,
 			);
 			path = project4;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			files = (
 				4DBAE2862256CF3500EB9DC5 /* ViewController.swift in Sources */,
 				4DBAE2842256CF3500EB9DC5 /* AppDelegate.swift in Sources */,
+				4DBAE2962256DF8800EB9DC5 /* WebsitesTableTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
