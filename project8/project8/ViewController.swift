@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     var activatedButtons = [UIButton]()
     var solutions = [String]()
     
+    var answersFound = 0
     var score = 0 {
         didSet {
             scoreLabel.text = "Score: \(score)"
@@ -113,6 +114,8 @@ class ViewController: UIViewController {
                 letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
                 letterButton.setTitle("WWW", for: .normal)
                 letterButton.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
+                letterButton.layer.borderWidth = 1
+                letterButton.layer.borderColor = UIColor.darkGray.cgColor
                 
                 let frame = CGRect(x: column * width, y: row * height, width: width, height: height)
                 letterButton.frame = frame
@@ -131,6 +134,7 @@ class ViewController: UIViewController {
     
     func levelUp(action: UIAlertAction) {
         level += 1
+        answersFound = 0
         
         solutions.removeAll(keepingCapacity: true)
         loadLevel()
@@ -160,12 +164,19 @@ class ViewController: UIViewController {
             
             currentAnswer.text = ""
             score += 1
+            answersFound += 1
             
-            if score % 7 == 0 {
+            if answersFound % 7 == 0 {
                 let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Let's go", style: .default, handler: levelUp))
                 present(ac, animated: true)
             }
+        } else {
+            let ac = UIAlertController(title: "Oops that's wrong", message: "That answer is not correct, please try again", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+            
+            score -= 1
         }
     }
 
