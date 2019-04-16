@@ -12,6 +12,8 @@
 		4DF43175226583B6007EC5E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DF43173226583B6007EC5E9 /* Main.storyboard */; };
 		4DF43177226583B7007EC5E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DF43176226583B7007EC5E9 /* Assets.xcassets */; };
 		4DF4317A226583B7007EC5E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DF43178226583B7007EC5E9 /* LaunchScreen.storyboard */; };
+		4DFFE0732266421D00380929 /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4DFFE0712266421D00380929 /* level1.txt */; };
+		4DFFE0742266421D00380929 /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4DFFE0722266421D00380929 /* level2.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		4DF43176226583B7007EC5E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DF43179226583B7007EC5E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DF4317B226583B7007EC5E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DFFE0712266421D00380929 /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
+		4DFFE0722266421D00380929 /* level2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 		4DF4316E226583B6007EC5E9 /* project8 */ = {
 			isa = PBXGroup;
 			children = (
+				4DFFE0712266421D00380929 /* level1.txt */,
+				4DFFE0722266421D00380929 /* level2.txt */,
 				4DF4316F226583B6007EC5E9 /* AppDelegate.swift */,
 				4DF43171226583B6007EC5E9 /* ViewController.swift */,
 				4DF43173226583B6007EC5E9 /* Main.storyboard */,
@@ -122,7 +128,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DFFE0742266421D00380929 /* level2.txt in Resources */,
 				4DF4317A226583B7007EC5E9 /* LaunchScreen.storyboard in Resources */,
+				4DFFE0732266421D00380929 /* level1.txt in Resources */,
 				4DF43177226583B7007EC5E9 /* Assets.xcassets in Resources */,
 				4DF43175226583B6007EC5E9 /* Main.storyboard in Resources */,
 			);
