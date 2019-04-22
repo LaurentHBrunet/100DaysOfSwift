@@ -57,16 +57,28 @@ class ViewController: UITableViewController {
         ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
             self.filteredPetitions.removeAll()
             
-            for var petition in self.petitions {
-                if petition.title.contains(textField.text!) {
-                    self.filteredPetitions.append(petition)
+            let filterText = textField.text!
+            
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                
+                if let petitions = self?.petitions {
+                    for var petition in petitions {
+                        if petition.title.contains(filterText) {
+                            self?.filteredPetitions.append(petition)
+                        }
+                    }
+                }
+                
+                DispatchQueue.main.async { [weak self] in
+                    self?.tableView.reloadData()
                 }
             }
-            self.tableView.reloadData()
         }))
         
         present(ac, animated: true)
     }
+    
+    
     
     @objc func showError() {
         let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check connection", preferredStyle: .alert)
