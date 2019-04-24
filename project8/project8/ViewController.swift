@@ -143,7 +143,7 @@ class ViewController: UIViewController {
             button.isHidden = false
         }
     }
-
+    
     @objc func letterTapped(_ sender: UIButton) {
         guard let buttonTitle = sender.titleLabel?.text else { return }
         
