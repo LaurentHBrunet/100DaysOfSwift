@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D11FED42272326400646967 /* FireParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4D11FED32272326400646967 /* FireParticles.sks */; };
 		4D846AE422715D600095CA91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D846AE322715D600095CA91 /* AppDelegate.swift */; };
 		4D846AE622715D600095CA91 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4D846AE522715D600095CA91 /* GameScene.sks */; };
 		4D846AEA22715D600095CA91 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D846AE922715D600095CA91 /* GameScene.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D11FED32272326400646967 /* FireParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireParticles.sks; sourceTree = "<group>"; };
 		4D846AE022715D600095CA91 /* project11.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project11.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D846AE322715D600095CA91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D846AE522715D600095CA91 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		4D846AE222715D600095CA91 /* project11 */ = {
 			isa = PBXGroup;
 			children = (
+				4D11FED32272326400646967 /* FireParticles.sks */,
 				4D846AE322715D600095CA91 /* AppDelegate.swift */,
 				4D846AE522715D600095CA91 /* GameScene.sks */,
 				4D846AE922715D600095CA91 /* GameScene.swift */,
@@ -130,6 +133,7 @@
 			files = (
 				4D846AEF22715D600095CA91 /* Main.storyboard in Resources */,
 				4D846AE622715D600095CA91 /* GameScene.sks in Resources */,
+				4D11FED42272326400646967 /* FireParticles.sks in Resources */,
 				4D846AF122715D610095CA91 /* Assets.xcassets in Resources */,
 				4D846AF422715D610095CA91 /* LaunchScreen.storyboard in Resources */,
 			);
