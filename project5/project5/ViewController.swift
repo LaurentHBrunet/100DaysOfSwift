@@ -30,12 +30,44 @@ class ViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
         
         
-        startGame()
+        reloadGame()
     }
     
     @objc func startGame() {
         title = allWords.randomElement()
         usedWords.removeAll(keepingCapacity: true)
+        saveCurrentWord()
+
+        tableView.reloadData()
+    }
+    
+    func reloadGame() {
+        title = allWords.randomElement()
+        usedWords.removeAll(keepingCapacity: true)
+        
+        let defaults = UserDefaults.standard
+        
+        if let savedCurrentWord = defaults.object(forKey: "currentWord") as? Data {
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                var savedTitleArray = try jsonDecoder.decode([String].self, from: savedCurrentWord)
+                title = savedTitleArray[0]
+            } catch {
+                print("Failed to load current word.")
+            }
+        }
+        
+        if let savedGuessedWords = defaults.object(forKey: "guessedWords") as? Data {
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                usedWords = try jsonDecoder.decode([String].self, from: savedGuessedWords)
+            } catch {
+                print("Failed to load current word.")
+            }
+        }
+        
         tableView.reloadData()
     }
     
@@ -76,6 +108,7 @@ class ViewController: UITableViewController {
                 if isOriginal(word: lowerAnswer) {
                     if isReal(word: lowerAnswer) {
                         usedWords.insert(lowerAnswer, at: 0)
+                        saveCurrentWord()
                         
                         let indexPath = IndexPath(row: 0, section: 0)
                         tableView.insertRows(at: [indexPath], with: .automatic)
@@ -138,6 +171,24 @@ class ViewController: UITableViewController {
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         
         present(ac, animated: true)
+    }
+    
+    func saveCurrentWord() {
+        let jsonEncoder = JSONEncoder()
+        let defaults = UserDefaults.standard
+        
+        if let savedGuessedWords = try? jsonEncoder.encode(usedWords) {
+            defaults.set(savedGuessedWords, forKey: "guessedWords")
+        } else {
+            print("error encoding guessedWords")
+        }
+        
+        if let savedTitle = try? jsonEncoder.encode([title!]) {
+            defaults.set(savedTitle, forKey: "currentWord")
+        } else {
+            print("error encoding currentWord")
+        }
+
     }
 }
 
