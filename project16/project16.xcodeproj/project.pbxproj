@@ -13,6 +13,7 @@
 		4DFAC7392281002E00963CB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAC7382281002E00963CB9 /* Assets.xcassets */; };
 		4DFAC73C2281002E00963CB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAC73A2281002E00963CB9 /* LaunchScreen.storyboard */; };
 		4DFAC7442281015900963CB9 /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAC7432281015900963CB9 /* Capital.swift */; };
+		4DFAC7462281073A00963CB9 /* DetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAC7452281073A00963CB9 /* DetailWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4DFAC73B2281002E00963CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DFAC73D2281002E00963CB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DFAC7432281015900963CB9 /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
+		4DFAC7452281073A00963CB9 /* DetailWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				4DFAC7382281002E00963CB9 /* Assets.xcassets */,
 				4DFAC73A2281002E00963CB9 /* LaunchScreen.storyboard */,
 				4DFAC73D2281002E00963CB9 /* Info.plist */,
+				4DFAC7452281073A00963CB9 /* DetailWebViewController.swift */,
 			);
 			path = project16;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DFAC7462281073A00963CB9 /* DetailWebViewController.swift in Sources */,
 				4DFAC7342281002D00963CB9 /* ViewController.swift in Sources */,
 				4DFAC7322281002D00963CB9 /* AppDelegate.swift in Sources */,
 				4DFAC7442281015900963CB9 /* Capital.swift in Sources */,

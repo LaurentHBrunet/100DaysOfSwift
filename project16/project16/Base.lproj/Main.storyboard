@@ -61,5 +61,20 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="-535.04464285714278"/>
         </scene>
+        <!--Detail Web View Controller-->
+        <scene sceneID="ETS-qn-Pmk">
+            <objects>
+                <viewController storyboardIdentifier="webView" id="5IV-jL-xlz" customClass="DetailWebViewController" customModule="project16" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A2X-HT-stV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="4zv-9q-gX3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3hO-UE-PdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1951" y="-535"/>
+        </scene>
     </scenes>
 </document>
