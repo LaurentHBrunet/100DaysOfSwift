@@ -15,8 +15,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var possibleEnemies = ["ball", "hammer", "tv"]
     var gameTimer: Timer?
+    var timerPeriod = 1.0
+    var timerDecrement = 0.1
+    var spawnedEnemyGroupCount = 0
     var isGameOver = false
     
+    var allowMoving = false
+
     var score = 0 {
         didSet {
             scoreLabel.text = "Score: \(score)"
@@ -48,7 +53,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.gravity = .zero
         physicsWorld.contactDelegate = self
         
-        gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: timerPeriod, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -65,7 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     @objc func createEnemy() {
         guard let enemy = possibleEnemies.randomElement() else { return }
-        
+
         let sprite = SKSpriteNode(imageNamed: enemy)
         sprite.position = CGPoint(x: 1200, y: Int.random(in: 50...736))
         sprite.physicsBody = SKPhysicsBody(texture: sprite.texture!, size: sprite.size)
@@ -76,6 +81,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.angularDamping = 0
         
         addChild(sprite)
+        
+        spawnedEnemyGroupCount += 1
+        
+        if spawnedEnemyGroupCount >= 20 {
+            spawnedEnemyGroupCount = 0
+            timerPeriod -= timerDecrement
+            gameTimer?.invalidate()
+            gameTimer = Timer(timeInterval: timerPeriod, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -83,6 +97,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         var location = touch.location(in: self)
         
+        let distanceToPlayer = distanceBetweenPoints(first: location, second: player.position)
+        guard distanceToPlayer < 50 else { return }
+
         if location.y < 100 {
             location.y = 100
         } else if location.y > 668 {
@@ -92,6 +109,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.position = location
     }
     
+    func distanceBetweenPoints(first: CGPoint, second: CGPoint) -> Float {
+        return hypotf(Float(second.x - first.x), Float(second.y - first.y));
+    }
+
     func didBegin(_ contact: SKPhysicsContact) {
         let explosion = SKEmitterNode(fileNamed: "explosion")!
         explosion.position = player.position
@@ -99,5 +120,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player.removeFromParent()
         isGameOver = true
+        gameTimer?.invalidate()
     }
 }
