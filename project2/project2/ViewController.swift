@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController {
     
@@ -25,6 +26,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+            if granted {
+                print("granted")
+                
+                center.removeAllPendingNotificationRequests()
+                
+                let content = UNMutableNotificationContent()
+                content.title = "You haven't played in a while"
+                content.body = "Make sure you come back to play the game"
+                content.categoryIdentifier = "alarm"
+                content.sound = .default
+                
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: true)
+                
+                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                center.add(request)
+            } else {
+                print("not granted")
+            }
+        }
+
         let defaults = UserDefaults.standard
         
         if let savedHighScore = defaults.object(forKey: "highScore") as? Data {

@@ -60,7 +60,9 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         center.delegate = self
         
         let show = UNNotificationAction(identifier: "show", title: "Tell me more.", options: .foreground)
-        let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [], options: [])
+        let remindLater = UNNotificationAction(identifier: "remindLater", title: "Remind me in 5 seconds", options: .destructive)
+        
+        let category = UNNotificationCategory(identifier: "alarm", actions: [show, remindLater], intentIdentifiers: [], options: [])
         
         center.setNotificationCategories([category])
     }
@@ -73,10 +75,15 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
             
             switch response.actionIdentifier {
             case UNNotificationDefaultActionIdentifier:
-                // the user swiped to unlock
-                print("Default identifier")
+                let ac = UIAlertController(title: "Default identifier used", message: nil, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                present(ac, animated: true)
             case "show":
-                print("Show more information")
+                let ac = UIAlertController(title: "Show identifier used", message: nil, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                present(ac, animated: true)
+            case "remindLater":
+                scheduleLocal()
             default:
                 break
             }
